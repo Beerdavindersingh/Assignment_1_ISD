@@ -2,7 +2,7 @@ class BankAccount:
     """
     A Class for Bank Account
     """
-    def _init_(self, account_number: int, client_number: int, balance: float):
+    def __init__(self, account_number:int, client_number: int, balance: float):
         """
         Attributes:
             AccountNumber(int)
