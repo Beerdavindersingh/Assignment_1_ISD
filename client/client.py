@@ -43,4 +43,38 @@ class client:
         except EmailNotValidError:
             self._email_address = "email@pixell-river.com"
 
-        
+
+    @property
+    def client_number(self) -> int:
+        """
+        this def will return client number
+        """
+        return self._client_number
+    
+    @property
+    def first_name(self) -> str:
+        """
+        this def will return first number
+        """
+        return self._first_name
+    
+    @property
+    def last_name(self) -> str:
+        """
+        this def will return last name
+        """
+        return self._last_name
+    
+    @property 
+    def emial_address(self) -> str:
+        """
+        this def will return the email address
+        """
+        return self._email_address
+    
+    def _str_(self):
+        """
+        this def will print the message in a format
+        """
+        return f"{self.last_name}, {self.first_name} [{self.client_number}] - {self.emial_address}"
+
