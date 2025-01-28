@@ -3,7 +3,7 @@ Description: A class to manage client.py
 """
 _author_ = "Beerdavinder Singh"
 
-from email_validator import validate_email,EmailNotValidError
+from email_validator import validate_email, EmailNotValidError
 
 class client:
     """
@@ -27,22 +27,20 @@ class client:
         else:
             raise ValueError("Client number should be a integar to be valid") 
         
-        if len(first_name.strip()) == 0:
-            self._first_name = first_name.strip()
-        else:
+        if not first_name.strip():
             raise ValueError("First name is empty") 
         
-        if len(last_name.strip()) == 0:
-            self._last_name = last_name.strip()
-        else:
+        if not last_name.strip():
             raise ValueError("Last name is empty")
         
         try:
             validate_email(email_address)
             self._email_address = email_address
         except EmailNotValidError:
-            self._email_address = "email@pixell-river.com"
+            self._email_address = "beerdavinder@pixel.com"
 
+        self._first_name = first_name
+        self._last_name = last_name
 
     @property
     def client_number(self) -> int:
@@ -72,7 +70,7 @@ class client:
         """
         return self._email_address
     
-    def _str_(self):
+    def __str__(self):
         """
         this def will print the message in a format
         """
