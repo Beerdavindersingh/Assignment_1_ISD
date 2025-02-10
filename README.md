@@ -7,5 +7,7 @@ This project will be developed over the course of several assignments.  Each ass
 ## Assignment
 Assignment [1]: [Classes, Encapsulation and Unit Test Planning]
 
+Assignment [2]: [Abstraction, Inheritance and Polymorphism]        
+
 ## Encapsulation
 [use this section to explain how Encapsulation was achieved in the BankAccount class.]
