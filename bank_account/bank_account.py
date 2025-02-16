@@ -1,8 +1,10 @@
+from datetime import date
 class BankAccount:
     """
     A Class for Bank Account
     """
-    def __init__(self, account_number:int, client_number: int, balance: float):
+    BASE_SERVICE_CHARGE: float = 0.50
+    def __init__(self, account_number:int, client_number: int, balance: float, date_created: date):
         """
         Attributes:
             AccountNumber(int)
@@ -23,6 +25,11 @@ class BankAccount:
             self._balance = float(balance)
         except ValueError:
             self._balance = 0.0
+
+        if isinstance(date_created, date):
+            self.__date_created = date_created
+        else:
+            self.__date_created = date.today()
 
 
     @property 
@@ -45,7 +52,13 @@ class BankAccount:
         this def returns the balance of the account
         """
         return self._balance
-    
+
+    @property
+    def date_created(self) -> date:
+        """
+        
+        """
+        return self.__date_created    
        
     def update_balance(self,amount:float):
         """
@@ -99,6 +112,12 @@ class BankAccount:
         """
         formatted_balance = f"${self._balance}"
         return f"Account number: {self._account_number} Balance: {formatted_balance}"
+
+    def service_charges(self) -> float:
+        """
+        
+        """
+        return BankAccount.BASE_SERVICE_CHARGE
 
 
 
