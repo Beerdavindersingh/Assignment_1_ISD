@@ -3,7 +3,7 @@ class BankAccount:
     """
     A Class for Bank Account
     """
-    BASE_SERVICE_CHARGE: float = 0.50
+    BASE_SERVICE_CHARGE = 0.50
     def __init__(self, account_number:int, client_number: int, balance: float, date_created: date):
         """
         Attributes:
@@ -113,11 +113,11 @@ class BankAccount:
         formatted_balance = f"${self._balance}"
         return f"Account number: {self._account_number} Balance: {formatted_balance}"
 
-    def service_charges(self) -> float:
+    def get_service_charges(self) -> float:
         """
         
         """
-        return BankAccount.BASE_SERVICE_CHARGE
+        return self.BASE_SERVICE_CHARGE
 
 
 
