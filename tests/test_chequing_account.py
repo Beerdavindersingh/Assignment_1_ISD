@@ -51,7 +51,7 @@ class Testchequingaccount(unittest.TestCase):
         self.chequing = Chequingaccount(700, 10, -100.00, date(2024, 10, 14), -100.00, 0.05)
         self.assertEqual(round(self.chequing.get_service_charges(),2), 0.50)
 
-    def test__str__(self):
+    def test_str_method(self):
         """
         
         """

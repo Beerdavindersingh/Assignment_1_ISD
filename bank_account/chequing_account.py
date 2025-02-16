@@ -27,7 +27,7 @@ class Chequingaccount(BankAccount):
     def overdraft_rate(self):
         return self.__overdraft_rate
     
-    def _str_(self):
+    def __str__(self):
         """
         
         """
