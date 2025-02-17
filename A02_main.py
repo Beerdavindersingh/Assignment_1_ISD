@@ -1,77 +1,61 @@
-"""
-Description: A client program written to verify correctness of 
-the BankAccount sub classes.
-"""
-__author__ = "ACE Faculty"
-__version__ = "1.0.0"
-__credits__ = ""
+from bank_account.bank_account import BankAccount
+from bank_account.chequing_account import Chequingaccount
+from bank_account.investment_account import InvestmentAccount
+from bank_account.savings_account import SavingAccount
+ 
+ 
+from datetime import date
 
-# 1.  Import all BankAccount types using the bank_account package
-#     Import date from datetime
+# Step 2: Create a ChequingAccount instance with a balance below the overdraft limit
+chequing = Chequingaccount(22222, 3333, -50, date.today(), 200.00, 0.05)
 
+# Step 3: Print ChequingAccount details
+print(chequing)
+print(f"Service Charges: ${chequing.get_service_charges():.2f}")
 
-# 2. Create an instance of a ChequingAccount with values of your 
-# choice including a balance which is below the overdraft limit.
-
-
-# 3. Print the ChequingAccount created in step 2.
-# 3b. Print the service charges amount if calculated based on the 
-# current state of the ChequingAccount created in step 2.
-
-
-# 4a. Use ChequingAccount instance created in step 2 to deposit 
-# enough money into the chequing account to avoid overdraft fees.
-# 4b. Print the ChequingAccount
-# 4c. Print the service charges amount if calculated based on the 
-# current state of the ChequingAccount created in step 2.
-
-
-print("===================================================")
-# 5. Create an instance of a SavingsAccount with values of your 
-# choice including a balance which is above the minimum balance.
-
-
-# 6. Print the SavingsAccount created in step 5.
-# 6b. Print the service charges amount if calculated based on the 
-# current state of the SavingsAccount created in step 5.
-
-
-# 7a. Use this SavingsAccount instance created in step 5 to withdraw 
-# enough money from the savings account to cause the balance to fall 
-# below the minimum balance.
-# 7b. Print the SavingsAccount.
-# 7c. Print the service charges amount if calculated based on the 
-# current state of the SavingsAccount created in step 5.
-
-
-
-print("===================================================")
-# 8. Create an instance of an InvestmentAccount with values of your 
-# choice including a date created within the last 10 years.
-
-
-# 9a. Print the InvestmentAccount created in step 8.
-# 9b. Print the service charges amount if calculated based on the 
-# current state of the InvestmentAccount created in step 8.
-
-
-# 10. Create an instance of an InvestmentAccount with values of your 
-# choice including a date created prior to 10 years ago.
-
-
-# 11a. Print the InvestmentAccount created in step 10.
-# 11b. Print the service charges amount if calculated based on the 
-# current state of the InvestmentAccount created in step 10.
-
+# Step 4: Deposit enough to avoid overdraft fees, then print details
+chequing.deposit(300)
+print(chequing)
+print(f"Service Charges: ${chequing.get_service_charges():.2f}")
 
 print("===================================================")
 
-# 12. Update the balance of each account created in steps 2, 5, 8 and 10 
-# by using the withdraw method of the superclass and withdrawing 
-# the service charges determined by each instance invoking the 
-# polymorphic get_service_charges method.
+# Step 5: Create a SavingsAccount instance with a balance above the minimum balance
+savings = SavingAccount(22222, 3333, 4444.44, date.today(), 200.00)
 
+# Step 6: Print SavingsAccount details
+print(savings)
+print(f"Service Charges: ${savings.get_service_charges():.2f}")
 
+# Step 7: Withdraw enough to fall below the minimum balance, then print details
+savings.withdraw(600)
+print(savings)
+print(f"Service Charges: ${savings.get_service_charges():.2f}")
 
-# 13. Print each of the bank account objects created in steps 2, 5, 8 and 10.
+print("===================================================")
+
+# Step 8: Create an InvestmentAccount within the last 10 years
+investment_recent = InvestmentAccount(22222, 3333, 4444.44, date(2020, 3, 10), 4.00)
+
+# Step 9: Print InvestmentAccount details
+print(investment_recent)
+print(f"Service Charges: ${investment_recent.get_service_charges():.2f}")
+
+# Step 10: Create an InvestmentAccount older than 10 years
+investment_old = InvestmentAccount(404, 50, 7000, date(2005, 3, 20), 4.00)
+
+# Step 11: Print InvestmentAccount details
+print(investment_old)
+print(f"Service Charges: ${investment_old.get_service_charges():.2f}")
+
+print("===================================================")
+
+# Step 12: Deduct service charges from each account
+accounts = [chequing, savings, investment_recent, investment_old]
+for account in accounts:
+    account.withdraw(account.get_service_charges())
+
+# Step 13: Print final details of all accounts
+for account in accounts:
+    print(account)
 

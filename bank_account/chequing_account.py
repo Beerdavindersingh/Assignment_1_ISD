@@ -6,7 +6,13 @@ from bank_account.bank_account import BankAccount
 class Chequingaccount(BankAccount):
     def __init__(self, account_number:int, client_number:int, balance: float, date_created: date, overdraft_limit:float, overdraft_rate: float):
         """
-        
+        Attributes:
+            Account number (int)
+            Client number (int)
+            balance (float)
+            date created (Date)
+            overdraft_limit(float)
+            overdraft rate(float)
         """
         super().__init__(account_number, client_number, balance, date_created)
         try:
@@ -29,7 +35,7 @@ class Chequingaccount(BankAccount):
     
     def __str__(self):
         """
-        
+        This is a def for a fomat of a string that we want to get as a result
         """
     
         return (f"{super().__str__()}\n"
@@ -37,7 +43,7 @@ class Chequingaccount(BankAccount):
         
     def get_service_charges(self) -> float:
         """
-        
+        This is a def to get the service charge as a result
         """
         if self._balance >= self.__overdraft_limit:
             return self.BASE_SERVICE_CHARGE
