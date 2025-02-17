@@ -37,12 +37,12 @@ class InvestmentAccount(BankAccount):
         .
         """
         if self._BankAccount__date_created >= self.TEN_YEARS_AGO:
-            self.__management_fee = f"${self.__management_fee:.2f}"
+            management_fee = f"${self.__management_fee:.2f}"
         else:
-            self.__management_fee = "Waived"
+            management_fee = "Waived"
            
         return (f"{super().__str__()}\n"
-               f"Management Fee: {self.__management_fee} Account Type: Investment")
+               f"Management Fee: {management_fee} Account Type: Investment")
        
        
     def get_service_charges(self) -> float:

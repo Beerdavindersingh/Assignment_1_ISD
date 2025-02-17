@@ -38,7 +38,7 @@ class SavingAccount(BankAccount):
         """
         
         """
-        if self._BankAccount__balance >= self.__minimum_balance:
+        if self._balance >= self.__minimum_balance:
             return self.BASE_SERVICE_CHARGE
         else:
             return self.BASE_SERVICE_CHARGE * self.SERVICE_CHARGE_PREMIUM
