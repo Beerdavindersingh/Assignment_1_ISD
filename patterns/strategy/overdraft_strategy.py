@@ -29,7 +29,7 @@ class OverdraftStrategy(ServiceChargeStrategy):
                
     def calculate_service_charges(self, account: BankAccount) -> float:
         """
-        Calculates service charges based on account balance and overdraft rules.
+        Calculates service charges based on account balance and overdraft rules
         """
         if self._BankAccount__balance >= self._overdraft_limit:
             calculate_service_charge =  ServiceChargeStrategy.BASE_SERVICE_CHARGE
