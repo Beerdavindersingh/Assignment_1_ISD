@@ -26,7 +26,7 @@ class Chequingaccount(BankAccount):
         except ValueError:
             self.__overdraft_rate = 0.5
 
-            self._strategy = OverdraftStrategy(overdraft_limit, overdraft_rate)
+        self.__strategy = OverdraftStrategy(overdraft_limit, overdraft_rate)
 
     @property
     def overdraft_limit(self):
@@ -48,4 +48,4 @@ class Chequingaccount(BankAccount):
         """
         This is a def to get the service charge as a result
         """
-        return self._strategy.calculate_service_charges(self)
+        return self.__strategy.calculate_service_charges(self)

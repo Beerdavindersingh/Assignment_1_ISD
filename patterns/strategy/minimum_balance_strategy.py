@@ -11,7 +11,7 @@ class MinimumBalanceStrategy(ServiceChargeStrategy):
         """
         Initializes the minimum balance strategy with the required balance.
         """
-        self._minimum_balance = minimum_balance
+        self.__minimum_balance = minimum_balance
        
     def calculate_service_charges(self, account: BankAccount)-> float:
         """
@@ -19,7 +19,7 @@ class MinimumBalanceStrategy(ServiceChargeStrategy):
         - If the balance meets or exceeds the minimum, apply the base service charge.
         - Otherwise, apply a premium service charge.
         """  
-        if self._BankAccount__balance >= self._minimum_balance:
+        if account.balance >= self.__minimum_balance:
             return self.BASE_SERVICE_CHARGE
         else:
             return self.BASE_SERVICE_CHARGE * self.SERVICE_CHARGE_PREMIUM  

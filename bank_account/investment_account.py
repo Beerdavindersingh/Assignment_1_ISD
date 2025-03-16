@@ -22,7 +22,7 @@ class InvestmentAccount(BankAccount):
         except(ValueError):
             self.__management_fee = 2.55
 
-            self._observer = ManagementFeeStrategy(date_created, date)
+        self.__observer = ManagementFeeStrategy(date_created, mangement_fee)
            
     @property
     def management_fee(self):
@@ -48,4 +48,4 @@ class InvestmentAccount(BankAccount):
         """
         this is  a def for getting service charges
         """
-        return self._observer.calculate_service_charges(self)
+        return self.__observer.calculate_service_charges(self)

@@ -17,7 +17,7 @@ class SavingAccount(BankAccount):
         except:
             self.__minimum_balance = 50.00
            
-        self._observer = MinimumBalanceStrategy(self.__minimum_balance)
+        self.__observer = MinimumBalanceStrategy(self.__minimum_balance)
     @property
     def minimum_balance(self):
         """
@@ -36,5 +36,5 @@ class SavingAccount(BankAccount):
         """
         this is a def for get service charges
         """
-        return self._observer.calculate_service_charges(self)
+        return self.__observer.calculate_service_charges(self)
                              
