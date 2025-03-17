@@ -16,3 +16,6 @@ Assignment [3]: [Design pattern, scalability, maintainability]
 
 ## Strategy Pattern
 [The Strategy Pattern helps this app calculate bank charges in different ways. It uses different rules like Overdraft, Management Fee, and Minimum Balance to work out the charges.]
+
+## Observer Pattern
+[The Observer Pattern lets BankAccount objects notify Client objects when something changes. For example, when there’s a deposit or withdrawal, all connected Clients get a message automatically.]
