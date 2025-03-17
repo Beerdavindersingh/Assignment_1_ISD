@@ -13,3 +13,6 @@ Assignment [3]: [Design pattern, scalability, maintainability]
 
 ## Encapsulation
 [use this section to explain how Encapsulation was achieved in the BankAccount class.]
+
+## Strategy Pattern
+[The Strategy Pattern helps this app calculate bank charges in different ways. It uses different rules like Overdraft, Management Fee, and Minimum Balance to work out the charges.]
