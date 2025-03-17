@@ -39,6 +39,7 @@ class BankAccount(subject, ABC):
         else:
             self.__date_created = date.today()
 
+        self.__observer = []
 
     @property 
     def account_number(self) -> int:
