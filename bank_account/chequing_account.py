@@ -2,6 +2,7 @@ Author = "Beerdavinder Singh"
 
 from datetime import date
 from bank_account.bank_account import BankAccount
+from patterns.strategy.overdraft_strategy import OverdraftStrategy
 
 class Chequingaccount(BankAccount):
     def __init__(self, account_number:int, client_number:int, balance: float, date_created: date, overdraft_limit:float, overdraft_rate: float):
@@ -25,6 +26,8 @@ class Chequingaccount(BankAccount):
         except ValueError:
             self.__overdraft_rate = 0.5
 
+        self.__strategy = OverdraftStrategy(overdraft_limit, overdraft_rate)
+
     @property
     def overdraft_limit(self):
         return self.__overdraft_limit
@@ -45,7 +48,4 @@ class Chequingaccount(BankAccount):
         """
         This is a def to get the service charge as a result
         """
-        if self._balance >= self.__overdraft_limit:
-            return self.BASE_SERVICE_CHARGE
-        else:
-            return self.BASE_SERVICE_CHARGE + ((self.__overdraft_limit - self._balance) * self.__overdraft_rate)
+        return self.__strategy.calculate_service_charges(self)

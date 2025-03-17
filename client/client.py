@@ -4,8 +4,11 @@ Description: A class to manage client.py
 _author_ = "Beerdavinder Singh"
 
 from email_validator import validate_email, EmailNotValidError
+from patterns.observer.observer import Observer
+from utility.file_utils import simulate_send_email
+from datetime import datetime
 
-class client:
+class client(Observer):
     """
     A client class with client_number as integar, first_name as string, last_name as string, email_address as string
     """
@@ -75,4 +78,18 @@ class client:
         this def will print the message in a format
         """
         return f"{self.last_name}, {self.first_name} [{self.client_number}] - {self.emial_address}"
+    
+    def update(self, message: str) -> None:
+        """
+        Handles the update notification received from the subject.
+        Sends an email alert with the provided message.
+        """
+        time = datetime.now().strftime("%Y-%M-%d %H:%M:%S")
+
+        subject = f"Alert: unusual activty:{time}"
+
+        email_message = f"Notification for {self._client_number}: {self._first_name} {self._last_name}: {message}"
+
+        simulate_send_email(self._email_address, subject, email_message)
+
 

@@ -7,7 +7,15 @@ This project will be developed over the course of several assignments.  Each ass
 ## Assignment
 Assignment [1]: [Classes, Encapsulation and Unit Test Planning]
 
-Assignment [2]: [Abstraction, Inheritance and Polymorphism]        
+Assignment [2]: [Abstraction, Inheritance and Polymorphism]      
+
+Assignment [3]: [Design pattern, scalability, maintainability]
 
 ## Encapsulation
 [use this section to explain how Encapsulation was achieved in the BankAccount class.]
+
+## Strategy Pattern
+[The Strategy Pattern helps this app calculate bank charges in different ways. It uses different rules like Overdraft, Management Fee, and Minimum Balance to work out the charges.]
+
+## Observer Pattern
+[The Observer Pattern lets BankAccount objects notify Client objects when something changes. For example, when there’s a deposit or withdrawal, all connected Clients get a message automatically.]
