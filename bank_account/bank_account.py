@@ -1,5 +1,11 @@
 from datetime import date
-class BankAccount:
+from patterns.observer.subject import subject
+from patterns.observer.observer import Observer
+from abc import ABC
+
+class BankAccount(subject, ABC):
+    LARGE_TRANSACTION_THRESHOLD : float = 9999.99
+    LOW_BALANCE_LEVEL : float = 50.0
     """
     A Class for Bank Account
     """
@@ -11,6 +17,8 @@ class BankAccount:
             ClientNumber(int)
             Balance(float)
         """
+        super().__init__()
+
         if isinstance(account_number, int):
             self._account_number = account_number
         else:
@@ -118,6 +126,36 @@ class BankAccount:
         
         """
         return self.BASE_SERVICE_CHARGE
+    
+    def attach(self, observer: Observer) -> None:
+        """
+        Adds an observer to the subject.
+
+        Args:
+           observer (Observer): The observer to add.
+        """
+        if observer in self.__observer:
+            self.__observer.append(observer)
+
+    def detach(self, observer: Observer) -> None:
+        """
+        Removes an observer from the subject.
+
+        Args:
+           observer (Observer): The observer to remove.
+        """
+        if observer in self.__observer:
+            self.__observer.remove(observer)
+
+    def notify(self, message: str) -> None:
+        """
+        Sends a message to all observers.
+
+        Args:
+           message (str): The message to send.
+        """
+        for observer in self.__observer:
+            observer.update(message)
 
 
 
