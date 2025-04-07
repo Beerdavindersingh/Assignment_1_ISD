@@ -11,6 +11,8 @@ Assignment [2]: [Abstraction, Inheritance and Polymorphism]
 
 Assignment [3]: [Design pattern, scalability, maintainability]
 
+Assignment [4]: [In this assignment, we will create a responsive Windows application using PySide6, with a focus on event handling to ensure our application can interact dynamically with user actions.]
+
 ## Encapsulation
 [use this section to explain how Encapsulation was achieved in the BankAccount class.]
 
@@ -19,3 +21,6 @@ Assignment [3]: [Design pattern, scalability, maintainability]
 
 ## Observer Pattern
 [The Observer Pattern lets BankAccount objects notify Client objects when something changes. For example, when there’s a deposit or withdrawal, all connected Clients get a message automatically.]
+
+## Event-Driven Programming Paradigm
+This app works using event-driven programming, which means it reacts when the user does something, like clicking or typing. For example, when you click "Lookup Client," it shows the client’s details and their accounts.
